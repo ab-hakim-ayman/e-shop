@@ -1,6 +1,6 @@
-{% load cart_product %}
+{% comment %} {% load cart_product %}
 {% load wish_product %}
-{% load notification %}
+{% load notification %} {% endcomment %}
 {% load category %}
 {% load logoInfo %}
 {% load static %}
@@ -82,16 +82,16 @@
                                         <div class="header-dropdown">
                                             <a href="#"> {{user.username}} </a>
                                             <div class="header-menu">
-                                                <ul>
+                                                {% comment %} <ul>
                                                     <li><a href="{% url 'account:profile' %}">Profile</a></li>
                                                     <li><a href="{% url 'account:logout' %}">Sign out</a></li>
                                                     <li><a href="{% url 'account:change_password' %}">password change</a></li>
-                                                </ul>
+                                                </ul> {% endcomment %}
                                             </div><!-- End .header-menu -->
                                         </div>
                                     </li>
                                     {% else %}
-                                    <li><a href="{% url 'account:login' %}">Sign in/ Sign up</a></li>
+                                    {% comment %} <li><a href="{% url 'account:login' %}">Sign in/ Sign up</a></li> {% endcomment %}
                                     {% endif %}
                                 </ul>
                             </li>
@@ -157,7 +157,7 @@
                         </div><!-- End .compare-dropdown -->
 
                         <div class="wishlist">
-                            <a href="{% url 'order:wish' %}" title="Wishlist">
+                            {% comment %} <a href="{% url 'order:wish' %}" title="Wishlist">
                                 <div class="icon">
                                     <i class="icon-heart-o"></i>
                                     {% if request.user.is_authenticated %}
@@ -167,7 +167,7 @@
                                     {% endif %}
                                 </div>
                                 <p>Wishlist</p>
-                            </a>
+                            </a> {% endcomment %}
                         </div><!-- End .compare-dropdown -->
 
                         <div class="dropdown cart-dropdown">
@@ -175,7 +175,7 @@
                                 <div class="icon">
                                     <i class="icon-shopping-cart"></i>
                                     {% if request.user.is_authenticated%}
-                                    <span class="cart-count">{{ request.user|cart_count }}</span>
+                                    {% comment %} <span class="cart-count">{{ request.user|cart_count }}</span> {% endcomment %}
                                     {% else %}
                                     <span class="cart-count">0</span>
                                     {% endif %}
@@ -186,8 +186,8 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
                                     {% if request.user.is_authenticated %}
-                                        {% if request.user|cart_view %}
-                                            {% for cart in request.user|cart_view %}
+                                        {% comment %} {% if request.user|cart_view %} 
+                                            {% for cart in request.user|cart_view %} 
                                             <div class="product">
                                                 <div class="product-cart-details">
                                                     <h4 class="product-title">
@@ -208,7 +208,7 @@
                                                 <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                                             </div><!-- End .product -->
                                             {% endfor %}
-                                        {% endif %}
+                                        {% endif %} {% endcomment %}
                                     {% endif %}
 
                                     
@@ -217,14 +217,14 @@
                                 <div class="dropdown-cart-total">
                                     <span>Total</span>
                                     {% if request.user.is_authenticated %}
-                                    <span class="cart-total-price">${{ request.user|cart_total}}</span>
+                                    {% comment %} <span class="cart-total-price">${{ request.user|cart_total}}</span> {% endcomment %}
                                     {% else %}
                                     <span class="cart-total-price">$0.00</span>
                                     {% endif %}
                                 </div><!-- End .dropdown-cart-total -->
 
                                 <div class="dropdown-cart-action">
-                                    <a href="{% url 'order:cart' %}" class="btn btn-primary">View Cart</a>
+                                    {% comment %} <a href="{% url 'order:cart' %}" class="btn btn-primary">View Cart</a> {% endcomment %}
                                     <a href="checkout.html" class="btn btn-outline-primary-2"><span>Checkout</span><i class="icon-long-arrow-right"></i></a>
                                 </div><!-- End .dropdown-cart-total -->
                             </div><!-- End .dropdown-menu -->
@@ -233,18 +233,18 @@
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
                                 <div class="icon">
                                     <i class="icon-shopping-cart"></i>
-                                        {% if request.user|notification_count %}
+                                        {% comment %} {% if request.user|notification_count %}
                                             <span class="cart-count">{{ request.user|notification_count}}</span>
                                         {% else %}
                                         <span class="cart-count">0</span>
-                                        {% endif %}
+                                        {% endif %} {% endcomment %}
                                 </div>
                                 <p>Notification</p>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    {% for notification in request.user|notifications %}
+                                    {% comment %} {% for notification in request.user|notifications %}
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
@@ -253,7 +253,7 @@
                                         </div><!-- End .product-cart-details -->
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                                     </div><!-- End .product -->
-                                    {% endfor %}
+                                    {% endfor %} {% endcomment %}
 
                                 </div><!-- End .cart-product --> 
                             </div><!-- End .dropdown-menu -->
@@ -415,7 +415,7 @@
                                             </ul>
                                         </li>
                                         <li><a href="login.html">Login</a></li>
-                                        <li><a href="{% url 'other:faq-view' %}">FAQs</a></li>
+                                        {% comment %} <li><a href="{% url 'other:faq-view' %}">FAQs</a></li> {% endcomment %}
                                         <li><a href="404.html">Error 404</a></li>
                                         <li><a href="coming-soon.html">Coming Soon</a></li>
                                     </ul>
@@ -515,13 +515,13 @@
 	            			<div class="widget">
 	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
 
-	            				<ul class="widget-list">
+	            				{% comment %} <ul class="widget-list">
 	            					<li><a href="{% url 'other:about-eshop' %}">About Eshop</a></li>
                                     <li><a href="#">Our Services</a></li>
 	            					<li><a href="#">How to shop on Molla</a></li>
 	            					<li><a href="{% url 'other:faq-view' %}">FAQ</a></li>
 	            					<li><a href="{% url 'other:user-contact' %}">Contact us</a></li>
-	            				</ul><!-- End .widget-list -->
+	            				</ul><!-- End .widget-list --> {% endcomment %}
 	            			</div><!-- End .widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
 
@@ -544,7 +544,7 @@
 	            			<div class="widget">
 	            				<h4 class="widget-title">My Account</h4><!-- End .widget-title -->
 
-	            				<ul class="widget-list">
+	            				{% comment %} <ul class="widget-list">
                                     {% if user.is_authenticated %}
 	            					    <li><a href="{% url 'account:logout' %}">Sign out</a></li>
                                     {% else %}
@@ -554,7 +554,7 @@
 	            					<li><a href="#">My Wishlist</a></li>
 	            					<li><a href="{% url 'order:track' %}">Track My Order</a></li>
 	            					<li><a href="#">Help</a></li>
-	            				</ul><!-- End .widget-list -->
+	            				</ul><!-- End .widget-list --> {% endcomment %}
 	            			</div><!-- End .widget -->
 	            		</div><!-- End .col-sm-6 col-lg-3 -->
 	            	</div><!-- End .row -->
