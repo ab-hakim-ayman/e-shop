@@ -82,16 +82,16 @@
                                         <div class="header-dropdown">
                                             <a href="#"> {{user.username}} </a>
                                             <div class="header-menu">
-                                                {% comment %} <ul>
+                                                <ul>
                                                     <li><a href="{% url 'account:profile' %}">Profile</a></li>
                                                     <li><a href="{% url 'account:logout' %}">Sign out</a></li>
                                                     <li><a href="{% url 'account:change_password' %}">password change</a></li>
-                                                </ul> {% endcomment %}
+                                                </ul>
                                             </div><!-- End .header-menu -->
                                         </div>
                                     </li>
                                     {% else %}
-                                    {% comment %} <li><a href="{% url 'account:login' %}">Sign in/ Sign up</a></li> {% endcomment %}
+                                    <li><a href="{% url 'account:login' %}">Sign in/ Sign up</a></li>
                                     {% endif %}
                                 </ul>
                             </li>
