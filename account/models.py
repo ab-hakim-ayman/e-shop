@@ -7,7 +7,7 @@ from django.contrib.auth.hashers import make_password
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, PermissionsMixin
 
 
-class CustomManager(BaseUserManager):
+class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password, **extra_fields):
         if not email:
             raise ValueError('Email address is required!')
@@ -50,7 +50,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=False)
     is_verify = models.BooleanField(default=False)
     
-    objects = CustomManager()
+    objects = CustomUserManager()
 
     def __str__(self):
         return str(self.email)

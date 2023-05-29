@@ -6,13 +6,13 @@ from account.models import Profile
 
 User = get_user_model()
 
+class RegistrationForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'password')
+        
 class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ('__all__')
         exclude = ('user', )
-
-class RegistrationForm(UserCreationForm):
-    class Meta:
-        model = User
-        fields = ('username','email', 'password')
