@@ -116,14 +116,14 @@
                                         <img src="{{ product.image.url }}" alt="Product image" class="product-image">
                                     </a>
 
-                                    {% comment %} <div class="product-action-vertical">
+                                    <div class="product-action-vertical">
                                         <a href="{% url 'order:add-to-wish' product.id %}" class="btn-product-icon btn-wishlist btn-expandable"><span>add to wishlist</span></a>
-                                    </div><!-- End .product-action --> {% endcomment %}
+                                    </div><!-- End .product-action --> 
 
                                     {% comment %} <div class="product-action product-action-dark">
                                         <a href="{% url 'order:add-to-cart' product.id %}" class="btn-product btn-cart" title="Add to cart"><span>add to cart</span></a>
                                         <a href="{% url 'store:product-details' product.slug %}" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
-                                    </div><!-- End .product-action --> {% endcomment %}
+                                    </div><!-- End .product-action -->  {% endcomment %}
                                 </figure><!-- End .product-media -->
 
                                 <div class="product-body">
