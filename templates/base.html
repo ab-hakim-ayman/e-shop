@@ -1,7 +1,7 @@
 {% load cart_product %}
 {% load wish_product %}
 
-{% comment %} {% load notification %} {% endcomment %}
+{% load notification %}
 {% load category %}
 {% load logoInfo %}
 {% load static %}
@@ -232,20 +232,20 @@
                         </div><!-- End .cart-dropdown -->
                         <div class="dropdown cart-dropdown">
                             <a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-                                {% comment %} <div class="icon">
+                                <div class="icon">
                                     <i class="icon-shopping-cart"></i>
                                         {% if request.user|notification_count %}
                                             <span class="cart-count">{{ request.user|notification_count}}</span>
                                         {% else %}
                                         <span class="cart-count">0</span>
                                         {% endif %}
-                                </div> {% endcomment %}
+                                </div>
                                 <p>Notification</p>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right">
                                 <div class="dropdown-cart-products">
-                                    {% comment %} {% for notification in request.user|notifications %}
+                                    {% for notification in request.user|notifications %}
                                     <div class="product">
                                         <div class="product-cart-details">
                                             <h4 class="product-title">
@@ -254,7 +254,7 @@
                                         </div><!-- End .product-cart-details -->
                                         <a href="#" class="btn-remove" title="Remove Product"><i class="icon-close"></i></a>
                                     </div><!-- End .product -->
-                                    {% endfor %} {% endcomment %}
+                                    {% endfor %}
 
                                 </div><!-- End .cart-product --> 
                             </div><!-- End .dropdown-menu -->

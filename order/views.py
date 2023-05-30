@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect, HttpResponse
 from django.utils import timezone
-
+from notification.notific import SendNotification
 from store.models import Product
 from order.models import Cart, Order, Wish, OrderUpdate
 from coupon.forms import CouponCodeForm
@@ -11,6 +11,8 @@ def add_to_wish(request, pk):
     if request.user.is_authenticated:
         item = get_object_or_404(Product, pk=pk)
         wish_item = Wish.objects.get_or_create(item=item, user=request.user)
+        message = f"product added to wishlist!"
+        SendNotification(request.user, message)
         return redirect('store:index')
     else:
         return redirect('account:login')
@@ -54,7 +56,7 @@ def add_to_cart(request, pk):
                 order_item[0].color = color
                 order_item[0].save()
                 message = f"Quantity updated"
-                # SendNotification(request.user, message)
+                SendNotification(request.user, message)
                 return redirect('store:index')
             else:
                 size = request.POST.get('size')
@@ -69,13 +71,15 @@ def add_to_cart(request, pk):
                 order_item[0].save()
                 order.orderitems.add(order_item[0])
                 order.save()
+                message = f"new product added to cart"
+                SendNotification(request.user, message)
                 return redirect('store:index')
         else:
             order = Order(user=request.user)
             order.save()
             order.orderitems.add(order_item[0])
             message = f"Product added to your cart"
-            # SendNotification(request.user, message)
+            SendNotification(request.user, message)
             return redirect('store:index')
     else:
         return redirect('account:login')
