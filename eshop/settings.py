@@ -125,6 +125,13 @@ STATICFILES_DIRS = [BASE_DIR / 'static']
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+PAYPAL_CLIENT_ID = "AdYGPNQHg-tB-cNVvXCoAEg_g2rmKjn5vhjlvj22l2t8HpxJd7N-hA4thSvfsHcemzLk3wA3DxWSapkj"
+PAYPAL_CLIENT_SECRET = "EP7cjGovkgNlx1OdMqKIE1ZCzehj5l84dnOCLjrbJPUY3u9k1kj8zv3Q1vGHOuSSgNqm3TYoOEFTIzIG"
+
+STORE_ID = 'cleve6084e47685c74'
+STORE_PASS = 'cleve6084e47685c74@ssl'
+
 #email access
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
