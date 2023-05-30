@@ -62,11 +62,11 @@
 												{% endif %}
 											</td>
 											<td class="quantity-col">
-                                                <div class="cart-product-quantity">
+                                                {% comment %} <div class="cart-product-quantity">
                                                     <a class="mr-2" href="{% url 'order:decrease' pk=cart.item.pk %}"><button class="btn-remove"><i class="icon-minus"></i></button></a>
 														<span>{{ cart.quantity }}</span>
 													<a class="mr-2" href="{% url 'order:increase' pk=cart.item.pk %}"><button class="btn-remove"><i class="icon-plus"></i></button></a>
-                                                </div><!-- End .cart-product-quantity -->
+                                                </div><!-- End .cart-product-quantity --> {% endcomment %}
                                             </td>
 											<td class="total-col">
 												{% if cart.variation_total %}
@@ -161,7 +161,7 @@
 	                					</tbody>
 	                				</table><!-- End .table table-summary -->
 
-	                				<a href="{% url 'checkout' %}" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a>
+	                				{% comment %} <a href="{% url 'checkout' %}" class="btn btn-outline-primary-2 btn-order btn-block">PROCEED TO CHECKOUT</a> {% endcomment %}
 	                			</div><!-- End .summary -->
 
 		            			<a href="category.html" class="btn btn-outline-dark-2 btn-block mb-3"><span>CONTINUE SHOPPING</span><i class="icon-refresh"></i></a>
