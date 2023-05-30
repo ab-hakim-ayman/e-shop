@@ -50,7 +50,7 @@
 								<td class="price-col">${{ obj.item.old_price }}</td>
 								<td class="price-col">${{ obj.get_price }}</td>
 								<td class="stock-col"><span class="in-stock">{{ obj.item.is_stock }}</span></td>
-                                <td class="remove-col"><a href="{% url 'order:remove-wish' pk=obj.item.pk %}" <button class="btn-remove"><i class="icon-close"></i></button></a></td>
+                                <td class="remove-col"><a href="{% url 'order:remove-wish' pk=obj.item.pk %}" ><button class="btn-remove"><i class="icon-close"></i></button></a></td> 
 							</tr>
                             {% endfor %}
 						</tbody>
